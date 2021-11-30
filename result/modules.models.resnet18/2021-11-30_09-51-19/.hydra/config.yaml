@@ -1,0 +1,30 @@
+data:
+  name: tinyimagenet
+  root: data/tiny-imagenet-200
+  train: train
+  val: val
+  test: test
+  train_labels: words.txt
+  val_labels: val_annotations.txt
+  classes: 200
+augmentation:
+  pre: config/augmentation/pre.yaml
+  main: config/augmentation/default.yaml
+  post: config/augmentation/post.yaml
+results:
+  checkpoints:
+    root: checkpoints
+    tag: tensorboard
+    name: model
+train:
+  epochs: 35
+  batch_size: 128
+  num_workers: 8
+  monitor: val_acc
+model:
+  _target_: modules.models.resnet18
+optimizer:
+  _target_: torch.optim.SGD
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 1.0e-05
