@@ -1,3 +1,6 @@
+# Original repository: https://github.com/papkov/tinyimagenet 
+
+
 # Image Classifier for Tiny ImageNet
 
 ## Project structure
